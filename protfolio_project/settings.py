@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +22,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-l&yu5fuotkqb2nwx%4+m()oijcyk1)&nwo=2ygt3os7e7l1*p('
-
+# SECRET_KEY = 'django-insecure-l&yu5fuotkqb2nwx%4+m()oijcyk1)&nwo=2ygt3os7e7l1*p('
+SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = os.environ.get("DEBUG", "False").lower() == 'true'
 
-ALLOWED_HOSTS = ['*','.us-south.codeengine.appdomain.cloud']
+# ALLOWED_HOSTS = ['*','.us-south.codeengine.appdomain.cloud']
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
@@ -76,17 +79,27 @@ WSGI_APPLICATION = 'protfolio_project.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
+    'default': {}
+}
+
+database_url=os.environ.get("DATABASE_URL")
+DATABASES['default'] = dj_database_url.parse(database_url)
+
+
+# DATABASES['default'] = dj_database_url.parse('postgresql://portfolio_ab3d_user:N6ZgftL4rD9xmqHQtkImNc69bMrOBYhe@dpg-cvugn9emcj7s73cdu9kg-a.oregon-postgres.render.com/portfolio_ab3d')
+
+# DATABASES = {
 
 
      
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'portfolio_ab3d',
-        'USER': 'portfolio_ab3d_user',
-        'PASSWORD': 'N6ZgftL4rD9xmqHQtkImNc69bMrOBYhe',
-        'HOST': 'dpg-cvugn9emcj7s73cdu9kg-a',
-        'PORT': "5432",
-    }
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'portfolio_ab3d',
+#         'USER': 'portfolio_ab3d_user',
+#         'PASSWORD': 'N6ZgftL4rD9xmqHQtkImNc69bMrOBYhe',
+#         'HOST': 'dpg-cvugn9emcj7s73cdu9kg-a',
+#         'PORT': "5432",
+#     }
 
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql',
@@ -105,7 +118,7 @@ DATABASES = {
     #     'HOST': 'host.docker.internal',
     #     'PORT': '5432',
     # }
-}
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
