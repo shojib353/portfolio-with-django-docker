@@ -1,0 +1,3 @@
+Django
+Pillow # For image handling
+psycopg2-binary # For PostgreSQL database support
