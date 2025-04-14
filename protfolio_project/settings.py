@@ -80,11 +80,12 @@ DATABASES = {
 
      
     'default': {
-        'NAME': os.environ.get('DB_NAME', 'portfolio_ab3d'),
-        'USER': os.environ.get('DB_USER', 'portfolio_ab3d_user'),
-        'PASSWORD': os.environ.get('DB_PASSWORD', 'N6ZgftL4rD9xmqHQtkImNc69bMrOBYhe'),
-        'HOST': os.environ.get('DB_HOST', 'dpg-cvugn9emcj7s73cdu9kg-a'),
-        'PORT': os.environ.get('DB_PORT', '5432'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'portfolio_ab3d',
+        'USER': 'portfolio_ab3d_user',
+        'PASSWORD': 'N6ZgftL4rD9xmqHQtkImNc69bMrOBYhe',
+        'HOST': 'dpg-cvugn9emcj7s73cdu9kg-a',
+        'PORT': "5432",
     }
 
     # 'default': {
