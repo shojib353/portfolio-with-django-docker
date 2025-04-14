@@ -78,14 +78,24 @@ WSGI_APPLICATION = 'protfolio_project.wsgi.application'
 DATABASES = {
 
 
-     'default': {
+     
+    'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'portfolio_ab3d',
         'USER': 'portfolio_ab3d_user',
         'PASSWORD': 'N6ZgftL4rD9xmqHQtkImNc69bMrOBYhe',
         'HOST': 'dpg-cvugn9emcj7s73cdu9kg-a',
-        'PORT': '5432',
+        'PORT': "5432",
     }
+
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'portfolio_ab3d',
+    #     'USER': 'portfolio_ab3d_user',
+    #     'PASSWORD': 'N6ZgftL4rD9xmqHQtkImNc69bMrOBYhe',
+    #     'HOST': 'dpg-cvugn9emcj7s73cdu9kg-a',
+    #     'PORT': '5432',
+    # }
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql',
     #     'NAME': 'portfolio',
