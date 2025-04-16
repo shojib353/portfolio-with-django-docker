@@ -106,7 +106,7 @@
       </div>
 
 
-      <div class="container4">
+      <div class="container4" id="projects">
         <h1>Projects</h1>
         
 
@@ -114,7 +114,9 @@
             {% for project in projects %}
             <div class="project-card">
                 <img src="{{ project.image.url }}" alt="Project 1">
-                <button class="btn">View Project</button>
+                <button class="btn" onclick="window.open('{{ project.link }}', '_blank')">
+                    View Project
+                </button>
             </div>
             {% endfor %}
 
