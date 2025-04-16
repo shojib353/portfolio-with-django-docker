@@ -1,14 +1,20 @@
+from multiprocessing import context
 from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import date
+from .models import Project
 
 def index(request):
-    # Create a simple html page as a string
-    template = "<html>" \
-                "This is your first view" \
-               "</html>"
-    # Return the template as content argument in HTTP response
-    return HttpResponse(content=template)
+
+    
+    
+
+    projects = Project.objects.all()
+
+    context = {
+        'projects': projects,
+    }
+    return render(request,"portfolio_app/index.html",context=context)
 
 
 

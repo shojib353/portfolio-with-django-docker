@@ -22,13 +22,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-l&yu5fuotkqb2nwx%4+m()oijcyk1)&nwo=2ygt3os7e7l1*p('
-SECRET_KEY = os.environ.get("SECRET_KEY")
-# SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = os.environ.get("DEBUG", "False").lower() == 'true'
 
+
+# SECURITY WARNING: don't run with debug turned on in production!
+
+
+# SECRET_KEY = 'django-insecure-l&yu5fuotkqb2nwx%4+m()oijcyk1)&nwo=2ygt3os7e7l1*p('
+# DEBUG = True
 # ALLOWED_HOSTS = ['*','.us-south.codeengine.appdomain.cloud']
+
+
+SECRET_KEY = os.environ.get("SECRET_KEY")
+DEBUG = os.environ.get("DEBUG", "False").lower() == 'true'
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 
@@ -59,7 +64,7 @@ ROOT_URLCONF = 'protfolio_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+         'DIRS': [os.path.join(BASE_DIR, 'templates')], 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,6 +72,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                
             ],
         },
     },
@@ -154,10 +160,23 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
+# STATIC_URL = '/static/'
+# STATIC_ROOT = BASE_DIR / "staticfiles"
+# MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
+# MEDIA_URL = '/media/'
+# STATICFILES_DIRS = [BASE_DIR / "static"]
+
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # this is for development
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')    # this will be used in production with collectstatic
 MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
 MEDIA_URL = '/media/'
+
+
+# STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
+# MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

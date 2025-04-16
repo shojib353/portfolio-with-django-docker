@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="{% static 'portfolio_app/base.css' %}">
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <ul class="navitems" id="navItems">
+              <li><a style="color: white;" href="#">Home</a></li>
+              <li><a style="color:white;" href="#">Projects</a></li>
+              <li><a style="color:white;" href="#">Contact</a></li>
+            </ul>
+          
+        </nav>
+        
+      
+        {% block content %}
+        {% endblock %}
+
+        <script>
+            function toggleMenu() {
+              const nav = document.getElementById("navItems");
+              nav.classList.toggle("show");
+            }
+          
+            // Hide menu if clicked outside
+            document.addEventListener("click", function (event) {
+              const nav = document.getElementById("navItems");
+              const menuIcon = document.querySelector(".menu-icon");
+          
+              // If click is outside the nav and menu icon, hide it
+              if (!nav.contains(event.target) && !menuIcon.contains(event.target)) {
+                nav.classList.remove("show");
+              }
+            });
+          </script>
+      </body>
+      
+</html>
