@@ -1,0 +1,274 @@
+
+.custom-btn {
+    background-color: #F9F5FF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .custom-btn a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .custom-btn:hover {
+    background-color: #d9d4e7;
+  }
+  
+  .custom-btn:hover a {
+    color: rgb(48, 48, 48);
+  }
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+
+  }
+  
+  .leftdiv {
+    
+    flex: 2;
+    min-width: 300px;
+    padding: 20px;
+    box-sizing: border-box;
+    
+  }
+
+  .rightdiv {
+    display: flex;
+    justify-content: center;
+    align-items: right;
+    
+    
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .circular-image {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    border-radius: 50%;
+   
+    box-shadow: 0 4px 10px rgba(114, 114, 114, 0.5);
+  }
+
+  .container2 {
+    display: flex;
+    justify-content: center;  /* centers horizontally */
+    align-items: center;      /* centers vertically (if height is set) */
+    text-align: center;
+    height: auto;             /* or set specific height if needed */
+    margin: 0 auto;           /* centers the container if it has width */
+    padding: 20px 0;
+  }
+
+  .container3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    background-color: #0A0119;
+    color: #F9F5FF;
+    padding: 40px 20px;
+    gap: 40px;
+  }
+  
+  .leftdiv2, .rightdiv2 {
+    flex: 1 1 45%;
+  }
+  
+  .leftdiv2 ul {
+    list-style-type: square;
+    padding-left: 20px;
+    font-size: 18px;
+  }
+  
+  .leftdiv2 li {
+    margin-bottom: 10px;
+  }
+  
+  .rightdiv2 p {
+    line-height: 1.7;
+    font-size: 16px;
+  }
+  
+  .custom-btn {
+    background-color: #F9F5FF;
+    color: #0A0119;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .custom-btn a {
+    color: #0A0119;
+    text-decoration: none;
+  }
+  
+  .custom-btn:hover {
+    background-color: #d9d4e7;
+    cursor: pointer;
+  }
+  
+  /* Responsive for mobile */
+  @media screen and (max-width: 768px) {
+    .container3 {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .leftdiv2, .rightdiv2 {
+      flex: 1 1 100%;
+      text-align: center;
+    }
+  
+    .custom-btn {
+      width: 100%;
+      text-align: center;
+    }
+
+    .leftdiv2 h3 {
+      text-align: center;
+    }
+  }
+
+.leftdiv2 h3{
+    padding: 0 20px;
+
+}
+  .skill {
+
+    padding: 0 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .skill span {
+    font-weight: 600;
+    display: block;
+    width: 100px;
+    margin-bottom: 8px;
+    color: #F9F5FF;
+  }
+  
+  .progress-bar {
+    background-color: #2a2a40;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 15px;
+    width: 100%;
+    max-width: 300px; /* Adjust width as needed */
+  }
+  
+  .progress {
+    height: 100%;
+    background-color: #d9d4e7;
+    width: 0;
+    transition: width 1.5s ease-in-out;
+  }
+  
+  /* Animate fill on load */
+  .skill .progress {
+    animation: fillProgress 2s ease-in-out forwards;
+  }
+  
+  @keyframes fillProgress {
+    to {
+      width: var(--fill-width);
+    }
+  }
+
+
+  .container4 {
+    
+    padding: 40px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(255, 172, 172, 0.1);
+    text-align: center;
+}
+
+.container4 h1 {
+    font-size: 36px;
+
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+/* Grid container for projects */
+.projects {
+    display: grid;
+    column-gap: 50px;
+    row-gap: 50px;
+    justify-content: space-evenly;
+    max-width: 1200px;  
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+
+    /* display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px; */
+}
+
+/* Project card style */
+.project-card {
+    position: relative;
+    min-width: 300px;
+    min-height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+.project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover img {
+    filter: brightness(50%); /* Darken the image */
+}
+
+.project-card .btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    color: #333;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .btn {
+    opacity: 1; /* Show button on hover */
+    background-color: #333;
+    color: #fff; /* Make button lighter */
+}
+ 
+
+  
