@@ -27,14 +27,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-SECRET_KEY = 'django-insecure-l&yu5fuotkqb2nwx%4+m()oijcyk1)&nwo=2ygt3os7e7l1*p('
-DEBUG = True
-ALLOWED_HOSTS = ['*','.us-south.codeengine.appdomain.cloud']
+# SECRET_KEY = 'django-insecure-l&yu5fuotkqb2nwx%4+m()oijcyk1)&nwo=2ygt3os7e7l1*p('
+# DEBUG = True
+# ALLOWED_HOSTS = ['*','.us-south.codeengine.appdomain.cloud']
 
 
-# SECRET_KEY = os.environ.get("SECRET_KEY")
-# DEBUG = os.environ.get("DEBUG", "False").lower() == 'true'
-# ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+SECRET_KEY = os.environ.get("SECRET_KEY")
+DEBUG = os.environ.get("DEBUG", "False").lower() == 'true'
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
@@ -88,11 +88,11 @@ DATABASES = {
     'default': {}
 }
 
-# database_url=os.environ.get("DATABASE_URL")
-# DATABASES['default'] = dj_database_url.parse(database_url)
+database_url=os.environ.get("DATABASE_URL")
+DATABASES['default'] = dj_database_url.parse(database_url)
 
 
-DATABASES['default'] = dj_database_url.parse('postgresql://portfolio_ab3d_user:N6ZgftL4rD9xmqHQtkImNc69bMrOBYhe@dpg-cvugn9emcj7s73cdu9kg-a.oregon-postgres.render.com/portfolio_ab3d')
+# DATABASES['default'] = dj_database_url.parse('postgresql://portfolio_ab3d_user:N6ZgftL4rD9xmqHQtkImNc69bMrOBYhe@dpg-cvugn9emcj7s73cdu9kg-a.oregon-postgres.render.com/portfolio_ab3d')
 
 # DATABASES = {
 
