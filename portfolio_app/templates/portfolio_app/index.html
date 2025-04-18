@@ -1,0 +1,194 @@
+{% extends 'portfolio_app/base.html' %}
+{% load static %}
+
+{% block content %}
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="{% static 'portfolio_app/index.css' %}" />
+      <title>Document</title>
+    </head>
+    <body>
+      <div class="container" id="home">
+        <div class="leftdiv">
+          <h2>Md Shahoriar Hossain Shojib</h2>
+          <h1>Junior Developer | Learning & Building Mobile Apps And Website</h1>
+          <p id="about">
+            I design and develop full-stack web and mobile applications using Django, Flutter, and Kotlin. I build APIs with FastAPI and have hands-on experience with HTML, CSS, Python, PHP, and databases like PostgreSQL, MySQL, and SQL Server.
+          </p>
+          
+            <button type="button" class="custom-btn"><a href="https://drive.google.com/file/d/1iiVycVRKKQMn3t6Jay9g8meW6FSHHdnM/view" target="_blank">Resume</a></button>
+        </div>
+
+        <div class="rightdiv">
+          <img src="{% static 'media/my_image/myimg.png' %}" class="circular-image" />
+
+          {% comment %} <img src="{% static 'media/my_image/myimg.png' %}" width="360" height="360" alt="" /> {% endcomment %}
+          {% comment %} <img class="card-img-left" src="{{ MEDIA_URL }}/my_image/myimg.png" width="240px" height="240px" alt="Course image" /> {% endcomment %}
+        </div>
+      </div>
+
+      <div class="container2">
+        <h1>Skills and Tools</h1>
+      </div>
+
+      <div class="container3">
+        <div class="leftdiv2">
+        
+
+<div class="skill">
+  <span>Native Android App</span>
+  <div class="progress-bar">
+    <div class="progress" style="--fill-width: 75%;"></div>
+  </div>
+</div>
+
+<div class="skill">
+  <span>Flutter Mobile App</span>
+  <div class="progress-bar">
+    <div class="progress" style="--fill-width: 85%;"></div>
+  </div>
+</div>
+
+<div class="skill">
+  <span>Dart & kotlin</span>
+  <div class="progress-bar">
+    <div class="progress" style="--fill-width: 60%;"></div>
+  </div>
+</div>
+
+<div class="skill">
+  <span>C,C++,python & PHP</span>
+  <div class="progress-bar">
+    <div class="progress" style="--fill-width: 65%;"></div>
+  </div>
+</div>
+
+<div class="skill">
+  <span> Django & FastApi</span>
+  <div class="progress-bar">
+    <div class="progress" style="--fill-width: 80%;"></div>
+  </div>
+</div>
+
+<div class="skill">
+  <span>MySql</span>
+ 
+  <div class="progress-bar">
+    <div class="progress" style="--fill-width: 70%;"></div>
+  </div>
+</div>
+ </div>
+          
+          
+ <div class="leftdiv2">
+
+
+<div class="skill">
+<span>Postgressql</span>
+<div class="progress-bar">
+<div class="progress" style="--fill-width: 70%;"></div>
+</div>
+</div>
+
+<div class="skill">
+<span>SqlServer</span>
+<div class="progress-bar">
+<div class="progress" style="--fill-width: 80%;"></div>
+</div>
+</div>
+
+<div class="skill">
+<span>Docker</span>
+<div class="progress-bar">
+<div class="progress" style="--fill-width: 20%;"></div>
+</div>
+</div>
+
+
+<div class="skill">
+<span>Git & GitHub</span>
+<div class="progress-bar">
+<div class="progress" style="--fill-width: 80%;"></div>
+</div>
+</div>
+
+<div class="skill">
+<span>Adobe Illustator</span>
+
+<div class="progress-bar">
+<div class="progress" style="--fill-width: 60%;"></div>
+</div>
+</div>
+</div>
+      
+    
+        </div>
+      </div>
+
+
+     
+
+
+      <div class="container4" id="projects">
+        <h1>Projects</h1>
+
+        <div class="projects">
+          {% for project in projects %}
+            <div class="project-card">
+              <img src="{{ project.image.url }}" alt="{{ project.name }}" />
+              <button class="btn" onclick="window.open('{{ project.link }}', '_blank')">View GitHub Project</button>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+<div class="container4" id="certificates">
+        <h1>Certificates</h1>
+
+        <div class="projects" id="certificates">
+          {% for certificate in certificates %}
+            <div class="project-card">
+              <img src="{{ certificate.image.url }}" alt="{{ certificate.name }}" />
+              <button class="btn" onclick="window.open('{{ certificate.link }}', '_blank')">View GitHub Project</button>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+
+      <footer class="footer" >
+        <div class="footer-container">
+          <div class="footer-about">
+            <h3>Portfolio Website</h3>
+           
+          </div>
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#certificates">Certificates</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-social" id="contact">
+            <h4>Contact Me</h4>
+            <div class="social-icons">
+              <a href="mailto:shojib.shojib10@gmail.com" target="_blank">📧 Gmail</a>
+              <a href="https://www.linkedin.com/in/md-shahoriar-hossain-shojib-7294591b5/" target="_blank">💼 LinkedIn</a>
+              <a href="tel:+8801719573754">📞 Phone</a>
+            </div>
+          </div>
+          
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 MyWebsite. All rights reserved.</p>
+        </div>
+      </footer>
+      
+    </body>
+  </html>
+{% endblock %}

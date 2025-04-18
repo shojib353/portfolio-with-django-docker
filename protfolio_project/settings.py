@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +22,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-l&yu5fuotkqb2nwx%4+m()oijcyk1)&nwo=2ygt3os7e7l1*p('
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = ['*','.us-south.codeengine.appdomain.cloud']
+
+# SECRET_KEY = 'django-insecure-l&yu5fuotkqb2nwx%4+m()oijcyk1)&nwo=2ygt3os7e7l1*p('
+# DEBUG = True
+# ALLOWED_HOSTS = ['*','.us-south.codeengine.appdomain.cloud']
+
+
+SECRET_KEY = os.environ.get("SECRET_KEY")
+DEBUG = os.environ.get("DEBUG", "False").lower() == 'true'
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
@@ -56,7 +64,7 @@ ROOT_URLCONF = 'protfolio_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+         'DIRS': [os.path.join(BASE_DIR, 'templates')], 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -64,6 +72,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                
             ],
         },
     },
@@ -76,17 +85,27 @@ WSGI_APPLICATION = 'protfolio_project.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
+    'default': {}
+}
+
+database_url=os.environ.get("DATABASE_URL")
+DATABASES['default'] = dj_database_url.parse(database_url)
+
+
+# DATABASES['default'] = dj_database_url.parse('postgresql://portfolio_ab3d_user:N6ZgftL4rD9xmqHQtkImNc69bMrOBYhe@dpg-cvugn9emcj7s73cdu9kg-a.oregon-postgres.render.com/portfolio_ab3d')
+
+# DATABASES = {
 
 
      
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'portfolio_ab3d',
-        'USER': 'portfolio_ab3d_user',
-        'PASSWORD': 'N6ZgftL4rD9xmqHQtkImNc69bMrOBYhe',
-        'HOST': 'dpg-cvugn9emcj7s73cdu9kg-a',
-        'PORT': "5432",
-    }
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'portfolio_ab3d',
+#         'USER': 'portfolio_ab3d_user',
+#         'PASSWORD': 'N6ZgftL4rD9xmqHQtkImNc69bMrOBYhe',
+#         'HOST': 'dpg-cvugn9emcj7s73cdu9kg-a',
+#         'PORT': "5432",
+#     }
 
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql',
@@ -105,7 +124,7 @@ DATABASES = {
     #     'HOST': 'host.docker.internal',
     #     'PORT': '5432',
     # }
-}
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -141,10 +160,30 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
+# STATIC_URL = '/static/'
+# STATIC_ROOT = BASE_DIR / "staticfiles"
+# MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
+# MEDIA_URL = '/media/'
+# STATICFILES_DIRS = [BASE_DIR / "static"]
+
+# STATIC_URL = '/static/'
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # this is for development
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')    # this will be used in production with collectstatic
+# MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
+# MEDIA_URL = '/media/'
+
+
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # ⬅️ different from 'static'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] 
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  
+
+
+# STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
+# MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
