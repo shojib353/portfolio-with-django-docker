@@ -7,3 +7,11 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
+
+class Certificates(models.Model):
+    name = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='certificates_images/')
+    link = models.URLField(max_length=300)
+
+    def __str__(self):
+        return self.name
