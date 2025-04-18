@@ -16,7 +16,7 @@
           <h2>Md Shahoriar Hossain Shojib</h2>
           <h1>Junior Developer | Learning & Building Mobile Apps And Website</h1>
           <p id="about">
-            I design and develop full-stack web and mobile applications using Django, Flutter, and Kotlin. I build APIs with FastAPI and have hands-on experience with HTML, CSS, Python, PHP, and databases like PostgreSQL, MySQL, and SQL Server.
+            I design and develop full-stack web and mobile applications using Django, Flutter, and Kotlin. I build APIs with FastAPI and have hands-on experience with HTML, CSS, Python, JavaScript, PHP, and databases like PostgreSQL, MySQL, and SQL Server.
           </p>
           
             <button type="button" class="custom-btn"><a href="https://drive.google.com/file/d/1iiVycVRKKQMn3t6Jay9g8meW6FSHHdnM/view" target="_blank">Resume</a></button>
@@ -60,6 +60,13 @@
 </div>
 
 <div class="skill">
+  <span>HTML & CSS</span>
+  <div class="progress-bar">
+    <div class="progress" style="--fill-width: 90%;"></div>
+  </div>
+</div>
+
+<div class="skill">
   <span>C,C++,python & PHP</span>
   <div class="progress-bar">
     <div class="progress" style="--fill-width: 65%;"></div>
@@ -67,24 +74,32 @@
 </div>
 
 <div class="skill">
-  <span> Django & FastApi</span>
-  <div class="progress-bar">
-    <div class="progress" style="--fill-width: 80%;"></div>
-  </div>
-</div>
-
-<div class="skill">
-  <span>MySql</span>
- 
+  <span>JavaScript</span>
   <div class="progress-bar">
     <div class="progress" style="--fill-width: 70%;"></div>
   </div>
 </div>
+
+
  </div>
           
           
  <div class="leftdiv2">
 
+  <div class="skill">
+    <span> Django & FastApi</span>
+    <div class="progress-bar">
+      <div class="progress" style="--fill-width: 80%;"></div>
+    </div>
+  </div>
+  
+  <div class="skill">
+    <span>MySql</span>
+   
+    <div class="progress-bar">
+      <div class="progress" style="--fill-width: 70%;"></div>
+    </div>
+  </div>
 
 <div class="skill">
 <span>Postgressql</span>
@@ -152,7 +167,7 @@
           {% for certificate in certificates %}
             <div class="project-card">
               <img src="{{ certificate.image.url }}" alt="{{ certificate.name }}" />
-              <button class="btn" onclick="window.open('{{ certificate.link }}', '_blank')">View GitHub Project</button>
+              <button class="btn" onclick="window.open('{{ certificate.link }}', '_blank')">View Certificate</button>
             </div>
           {% endfor %}
         </div>

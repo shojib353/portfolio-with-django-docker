@@ -27,14 +27,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-SECRET_KEY = 'django-insecure-l&yu5fuotkqb2nwx%4+m()oijcyk1)&nwo=2ygt3os7e7l1*p('
-DEBUG = True
-ALLOWED_HOSTS = ['*','.us-south.codeengine.appdomain.cloud']
+# SECRET_KEY = 'django-insecure-l&yu5fuotkqb2nwx%4+m()oijcyk1)&nwo=2ygt3os7e7l1*p('
+# DEBUG = True
+# ALLOWED_HOSTS = ['*','.us-south.codeengine.appdomain.cloud']
 
 
-# SECRET_KEY = os.environ.get("SECRET_KEY")
-# DEBUG = os.environ.get("DEBUG", "False").lower() == 'true'
-# ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+SECRET_KEY = os.environ.get("SECRET_KEY")
+DEBUG = os.environ.get("DEBUG", "False").lower() == 'true'
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
