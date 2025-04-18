@@ -88,11 +88,11 @@ DATABASES = {
     'default': {}
 }
 
-# database_url=os.environ.get("DATABASE_URL")
-# DATABASES['default'] = dj_database_url.parse(database_url)
+database_url=os.environ.get("DATABASE_URL")
+DATABASES['default'] = dj_database_url.parse(database_url)
 
 
-DATABASES['default'] = dj_database_url.parse('postgresql://portfolio_ab3d_user:N6ZgftL4rD9xmqHQtkImNc69bMrOBYhe@dpg-cvugn9emcj7s73cdu9kg-a.oregon-postgres.render.com/portfolio_ab3d')
+# DATABASES['default'] = dj_database_url.parse('postgresql://portfolio_ab3d_user:N6ZgftL4rD9xmqHQtkImNc69bMrOBYhe@dpg-cvugn9emcj7s73cdu9kg-a.oregon-postgres.render.com/portfolio_ab3d')
 
 # DATABASES = {
 
