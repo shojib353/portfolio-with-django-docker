@@ -157,7 +157,7 @@
           {% for certificate in certificates %}
             <div class="project-card">
               <img src="{{ certificate.image.url }}" alt="{{ certificate.name }}" />
-              <button class="btn" onclick="window.open('{{ certificate.link }}', '_blank')">View GitHub Project</button>
+              <button class="btn" onclick="window.open('{{ certificate.link }}', '_blank')">View Certificate</button>
             </div>
           {% endfor %}
         </div>
@@ -167,7 +167,8 @@
       <footer class="footer" >
         <div class="footer-container">
           <div class="footer-about">
-            <h3>Portfolio Website</h3>
+            <h3>Portfolio</h3>
+             <button type="button" class="custom-btn"><a href="/admin">Admin Login</a></button>
            
           </div>
           <div class="footer-links">
