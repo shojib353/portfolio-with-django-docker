@@ -14,12 +14,12 @@
       <div class="container" id="home">
         <div class="leftdiv">
           <h2>Md Shahoriar Hossain Shojib</h2>
-          <h1>Junior Developer | Learning & Building Mobile Apps And Website</h1>
+          <h1>Software Developer | Learning & Building Mobile Apps And Website</h1>
           <p id="about">
-            I design and develop full-stack web and mobile applications using Django, Flutter, and Kotlin. I build APIs with FastAPI and have hands-on experience with HTML, CSS, Python, JavaScript, PHP, and databases like PostgreSQL, MySQL, and SQL Server.
-          </p>
+            I’m a full-stack developer. I specialize in mobile app development using Flutter and native (Kotlin), and also have backend experience using Django and FastAPI. I’m proficient in Python, Dart, Kotlin, and PHP,Js and work with databases like Firebase, PostgreSQL, and MySQL. I'm always eager to learn and build real-world solutions through clean, scalable code.
+             </p>
           
-            <button type="button" class="custom-btn"><a href="https://drive.google.com/file/d/1iiVycVRKKQMn3t6Jay9g8meW6FSHHdnM/view" target="_blank">Resume</a></button>
+            <button type="button" class="custom-btn"><a href="https://drive.google.com/file/d/1Yxo5FBd5VSztF-0rs7oOtOMD8Lxo-WC8/view?usp=sharing" target="_blank">CV</a></button>
         </div>
 
         <div class="rightdiv">
@@ -41,7 +41,7 @@
 <div class="skill">
   <span>Native Android App</span>
   <div class="progress-bar">
-    <div class="progress" style="--fill-width: 75%;"></div>
+    <div class="progress" style="--fill-width: 80%;"></div>
   </div>
 </div>
 
@@ -60,46 +60,36 @@
 </div>
 
 <div class="skill">
-  <span>HTML & CSS</span>
+  <span>C,C++,Js,python & PHP</span>
   <div class="progress-bar">
-    <div class="progress" style="--fill-width: 90%;"></div>
+    <div class="progress" style="--fill-width: 75%;"></div>
   </div>
 </div>
 
 <div class="skill">
-  <span>C,C++,python & PHP</span>
+  <span> Django & FastApi</span>
   <div class="progress-bar">
-    <div class="progress" style="--fill-width: 65%;"></div>
+    <div class="progress" style="--fill-width: 80%;"></div>
   </div>
 </div>
 
 <div class="skill">
-  <span>JavaScript</span>
+  <span>MySql</span>
+ 
   <div class="progress-bar">
     <div class="progress" style="--fill-width: 70%;"></div>
   </div>
 </div>
-
-
  </div>
           
           
  <div class="leftdiv2">
-
-  <div class="skill">
-    <span> Django & FastApi</span>
-    <div class="progress-bar">
-      <div class="progress" style="--fill-width: 80%;"></div>
-    </div>
-  </div>
-  
-  <div class="skill">
-    <span>MySql</span>
-   
-    <div class="progress-bar">
-      <div class="progress" style="--fill-width: 70%;"></div>
-    </div>
-  </div>
+<div class="skill">
+<span>Firebase</span>
+<div class="progress-bar">
+<div class="progress" style="--fill-width: 70%;"></div>
+</div>
+</div>
 
 <div class="skill">
 <span>Postgressql</span>
@@ -167,20 +157,17 @@
           {% for certificate in certificates %}
             <div class="project-card">
               <img src="{{ certificate.image.url }}" alt="{{ certificate.name }}" />
-              <button class="btn" onclick="window.open('{{ certificate.link }}', '_blank')">View Certificate</button>
+              <button class="btn" onclick="window.open('{{ certificate.link }}', '_blank')">View GitHub Project</button>
             </div>
           {% endfor %}
         </div>
       </div>
 
 
-      <div class="footer" >
+      <footer class="footer" >
         <div class="footer-container">
           <div class="footer-about">
             <h3>Portfolio Website</h3>
-            
-            <button type="button" class="custom-btn"><a href="/admin">Admin Login</a></button>
-       
            
           </div>
           <div class="footer-links">
@@ -195,9 +182,9 @@
           <div class="footer-social" id="contact">
             <h4>Contact Me</h4>
             <div class="social-icons">
-              <a href="mailto:shojib.shojib10@gmail.com" target="_blank">📧 Gmail</a>
+              <a href="mailto:shojib.shojib10@gmail.com" target="_blank">📧 Gmail:shojib.shojib10@gmail.com</a>
               <a href="https://www.linkedin.com/in/md-shahoriar-hossain-shojib-7294591b5/" target="_blank">💼 LinkedIn</a>
-              <a href="tel:+8801719573754">📞 Phone</a>
+              <a href="tel:+8801719573754">📞 Phone:+8801719573754</a>
             </div>
           </div>
           
@@ -205,7 +192,7 @@
         <div class="footer-bottom">
           <p>&copy; 2025 MyWebsite. All rights reserved.</p>
         </div>
-      </div>
+      </footer>
       
     </body>
   </html>
